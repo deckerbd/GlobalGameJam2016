@@ -47,9 +47,7 @@ public class WitchController : MonoBehaviour {
 	}
 
 	void JumpChecker(){
-		if (Physics2D.Linecast (transform.position, groundCheck.transform.position, 1 << LayerMask.NameToLayer ("Walkable"))) {
-			grounded = true;
-		}
+		grounded = Physics2D.Linecast (transform.position, groundCheck.transform.position, 1 << LayerMask.NameToLayer ("Walkable"));
 	}
 
 }
