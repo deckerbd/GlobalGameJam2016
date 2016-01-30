@@ -31,12 +31,14 @@ public class BeanSpawn : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
 			playerInside = true;
+			col.gameObject.GetComponent<WitchController> ().inSpawn = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
 			playerInside = false;
+			col.gameObject.GetComponent<WitchController> ().inSpawn = false;
 		}
 	}
 }

@@ -25,6 +25,8 @@ public class WitchController : MonoBehaviour {
 
 	private int seedIndex;
 
+	public bool inSpawn;
+
 	// Use this for initialization
 	void Start () {
 		beanSeeds = new Queue ();
@@ -74,6 +76,44 @@ public class WitchController : MonoBehaviour {
 				seedIndex++;
 			}
 			seedImage.sprite = seedPictures[seedIndex];
+		}
+
+		//SEED USE
+		if (!inSpawn) {
+			if (Input.GetButtonDown ("Seed Action")) {
+				PlantSeed ();
+			}
+		}
+
+	}
+
+	void PlantSeed(){
+
+
+		if (seedTypes [seedIndex] == "Bean") {
+			GameObject bgToGrow = null;
+			Vector3 newPos = (this.transform.position + new Vector3 (1f, 0, 0));
+
+			BoxCollider2D[] boxes = GameObject.FindObjectsOfType<BoxCollider2D> ();
+			ArrayList possibleBGs = new ArrayList();
+
+			foreach (BoxCollider2D b in boxes) {
+				if (b.bounds.Contains (newPos)){
+					possibleBGs.Add (b.gameObject);
+				}
+			}
+
+			int largestOrder = -10000;
+			foreach (Object obj in possibleBGs) {
+				GameObject gobj = obj as GameObject;
+				if (gobj.GetComponent<SpriteRenderer> ().sortingOrder > largestOrder) {
+					bgToGrow = gobj;
+					largestOrder = gobj.GetComponent<SpriteRenderer> ().sortingOrder;
+				}
+			}
+
+			Debug.Log (bgToGrow.name);
+
 		}
 
 	}
