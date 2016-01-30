@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 26f46e5b90dafa64b91f633e6036d5ec
+timeCreated: 1454176246
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CornWalkCycle_0
+    21300002: CornWalkCycle_1
+    21300004: CornWalkCycle_2
+    21300006: CornWalkCycle_3
+    21300008: CornWalkCycle_4
+    21300010: CornWalkCycle_5
+    21300012: CornWalkCycle_6
+    21300014: CornWalkCycle_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CornWalkCycle_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 745
+        height: 1079
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79.45185, y: -123}
+        - {x: 77.45185, y: -125}
+        - {x: 78.45185, y: -128}
+        - {x: 89.45185, y: -128}
+        - {x: 89.45185, y: -123}
+      - - {x: 89.45185, y: -90}
+        - {x: 88.45185, y: -84}
+        - {x: 85.45185, y: -81}
+        - {x: 81.45185, y: -81}
+        - {x: 89.45185, y: -70}
+        - {x: 89.45185, y: 90}
+        - {x: 84.45185, y: 105}
+        - {x: -46.54815, y: 105}
+        - {x: -88.54815, y: 66}
+        - {x: -88.54815, y: -4}
+        - {x: -63.54815, y: -97}
+        - {x: -24.54815, y: -127}
+        - {x: 20.45185, y: -127}
+        - {x: 19.45185, y: -124}
+        - {x: 15.451851, y: -114}
+        - {x: 64.45185, y: -114}
+    - name: CornWalkCycle_1
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79.45184, y: -123}
+        - {x: 77.45184, y: -125}
+        - {x: 78.45184, y: -128}
+        - {x: 89.45184, y: -128}
+        - {x: 89.45184, y: -123}
+      - - {x: 89.45184, y: 98}
+        - {x: 76.45184, y: 105}
+        - {x: -88.54816, y: 105}
+        - {x: -88.54816, y: -43}
+        - {x: -24.548157, y: -113}
+        - {x: -16.548157, y: -120}
+        - {x: -11.548157, y: -124}
+        - {x: 44.451843, y: -124}
+        - {x: 69.45184, y: -118}
+        - {x: 73.45184, y: -114}
+        - {x: 89.45184, y: -37}
+    - name: CornWalkCycle_2
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 77.66669, y: -125}
+        - {x: 78.66669, y: -128}
+        - {x: 85.66669, y: -128}
+        - {x: 87.66669, y: -126}
+        - {x: 86.66669, y: -123}
+        - {x: 79.66669, y: -123}
+      - - {x: 72.66669, y: 105}
+        - {x: -44.333313, y: 105}
+        - {x: -88.33331, y: 76}
+        - {x: -88.33331, y: 8}
+        - {x: -19.333313, y: -97}
+        - {x: -17.333313, y: -123}
+        - {x: 51.666687, y: -123}
+        - {x: 88.66669, y: -74}
+        - {x: 89.66669, y: -69}
+        - {x: 89.66669, y: 101}
+    - name: CornWalkCycle_3
+      rect:
+        serializedVersion: 2
+        x: 3284
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79.42963, y: -123}
+        - {x: 77.42963, y: -125}
+        - {x: 78.42963, y: -128}
+        - {x: 89.42963, y: -128}
+        - {x: 89.42963, y: -123}
+      - - {x: 89.42963, y: -72}
+        - {x: 89.42963, y: 98}
+        - {x: 70.42963, y: 105}
+        - {x: -41.570374, y: 105}
+        - {x: -88.57037, y: 84}
+        - {x: -88.57037, y: 10}
+        - {x: -41.570374, y: -123}
+        - {x: 11.429626, y: -123}
+        - {x: 13.429626, y: -122}
+        - {x: 7.4296265, y: -109}
+        - {x: 29.429626, y: -118}
+        - {x: 72.42963, y: -106}
+    - name: CornWalkCycle_4
+      rect:
+        serializedVersion: 2
+        x: 4347
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 77.900024, y: -125}
+        - {x: 78.900024, y: -128}
+        - {x: 85.900024, y: -128}
+        - {x: 87.900024, y: -126}
+        - {x: 86.900024, y: -123}
+        - {x: 79.900024, y: -123}
+      - - {x: 5.9000244, y: 105}
+        - {x: -44.099976, y: 91}
+        - {x: -88.099976, y: 78}
+        - {x: -88.099976, y: 4}
+        - {x: -74.099976, y: -77}
+        - {x: -35.099976, y: -127}
+        - {x: 67.900024, y: -127}
+        - {x: 88.900024, y: -113}
+        - {x: 88.900024, y: 105}
+    - name: CornWalkCycle_5
+      rect:
+        serializedVersion: 2
+        x: 5434
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87.559204, y: -128}
+        - {x: 86.559204, y: -125}
+        - {x: 78.559204, y: -125}
+        - {x: 77.559204, y: -128}
+      - - {x: 88.559204, y: -119}
+        - {x: 88.559204, y: 103}
+        - {x: -64.440796, y: 103}
+        - {x: -88.440796, y: 68}
+        - {x: -88.440796, y: -5}
+        - {x: -27.440796, y: -126}
+        - {x: 4.559204, y: -126}
+        - {x: 8.559204, y: -119}
+        - {x: 34.559204, y: -121}
+        - {x: 69.559204, y: -120}
+    - name: CornWalkCycle_6
+      rect:
+        serializedVersion: 2
+        x: 6525
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 77.666626, y: -125}
+        - {x: 78.666626, y: -128}
+        - {x: 85.666626, y: -128}
+        - {x: 87.666626, y: -126}
+        - {x: 86.666626, y: -123}
+        - {x: 79.666626, y: -123}
+      - - {x: 72.666626, y: 105}
+        - {x: -44.333374, y: 105}
+        - {x: -88.333374, y: 76}
+        - {x: -88.333374, y: 8}
+        - {x: -19.333374, y: -97}
+        - {x: -17.333374, y: -123}
+        - {x: 51.666626, y: -123}
+        - {x: 88.666626, y: -74}
+        - {x: 89.666626, y: -69}
+        - {x: 89.666626, y: 101}
+    - name: CornWalkCycle_7
+      rect:
+        serializedVersion: 2
+        x: 7604
+        y: 0
+        width: 745
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79.429565, y: -123}
+        - {x: 77.429565, y: -125}
+        - {x: 78.429565, y: -128}
+        - {x: 89.429565, y: -128}
+        - {x: 89.429565, y: -123}
+      - - {x: 89.429565, y: -84}
+        - {x: 89.429565, y: 77}
+        - {x: 82.429565, y: 105}
+        - {x: -49.570435, y: 105}
+        - {x: -88.570435, y: 91}
+        - {x: -88.570435, y: -25}
+        - {x: -51.570435, y: -118}
+        - {x: -14.570435, y: -123}
+        - {x: 11.429565, y: -123}
+        - {x: 13.429565, y: -122}
+        - {x: 7.4295654, y: -109}
+        - {x: 29.429565, y: -118}
+        - {x: 71.429565, y: -106}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
