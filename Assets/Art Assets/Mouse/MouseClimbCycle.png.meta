@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: 06c86cfa76783b34b8b57d23dd83f0c6
+timeCreated: 1454175189
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MouseClimbCycle_0
+    21300002: MouseClimbCycle_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MouseClimbCycle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 540
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35, y: -315}
+        - {x: -11, y: -280}
+        - {x: -20, y: -233}
+        - {x: 18, y: -207}
+        - {x: 81, y: -173}
+        - {x: 105, y: -150}
+        - {x: 144, y: -94}
+        - {x: 147, y: -56}
+        - {x: 135, y: -30}
+        - {x: 159, y: 7}
+        - {x: 165, y: 26}
+        - {x: 179, y: 50}
+        - {x: 179, y: 76}
+        - {x: 159, y: 93}
+        - {x: 141, y: 97}
+        - {x: 126, y: 54}
+        - {x: 144, y: 41}
+        - {x: 131, y: 12}
+        - {x: 115, y: 56}
+        - {x: 90, y: 101}
+        - {x: 111, y: 145}
+        - {x: 120, y: 172}
+        - {x: 113, y: 237}
+        - {x: 77, y: 308}
+        - {x: 45, y: 342}
+        - {x: 18, y: 403}
+        - {x: 6, y: 419}
+        - {x: -15, y: 419}
+        - {x: -25, y: 408}
+        - {x: -53, y: 349}
+        - {x: -87, y: 320}
+        - {x: -130, y: 236}
+        - {x: -137, y: 213}
+        - {x: -160, y: 140}
+        - {x: -202, y: 162}
+        - {x: -219, y: 164}
+        - {x: -222, y: 158}
+        - {x: -222, y: 135}
+        - {x: -154, y: 83}
+        - {x: -132, y: 57}
+        - {x: -176, y: -49}
+        - {x: -169, y: -110}
+        - {x: -125, y: -171}
+        - {x: -101, y: -185}
+        - {x: -117, y: -227}
+        - {x: -109, y: -283}
+        - {x: -96, y: -293}
+        - {x: -70, y: -290}
+        - {x: -60, y: -277}
+        - {x: -71, y: -203}
+        - {x: -60, y: -202}
+        - {x: -53, y: -266}
+        - {x: -34, y: -306}
+        - {x: -2, y: -332}
+        - {x: 33, y: -358}
+        - {x: -10, y: -460}
+        - {x: -10, y: -500}
+        - {x: 5, y: -500}
+        - {x: 22, y: -439}
+        - {x: 48, y: -402}
+        - {x: 66, y: -348}
+    - name: MouseClimbCycle_1
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 540
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -328}
+        - {x: 37, y: -301}
+        - {x: 50, y: -274}
+        - {x: 51, y: -282}
+        - {x: 78, y: -299}
+        - {x: 96, y: -287}
+        - {x: 112, y: -242}
+        - {x: 97, y: -194}
+        - {x: 147, y: -143}
+        - {x: 176, y: -98}
+        - {x: 176, y: -45}
+        - {x: 138, y: 25}
+        - {x: 119, y: 57}
+        - {x: 129, y: 138}
+        - {x: 135, y: 199}
+        - {x: 124, y: 233}
+        - {x: 93, y: 300}
+        - {x: 66, y: 336}
+        - {x: 38, y: 364}
+        - {x: 30, y: 414}
+        - {x: 24, y: 416}
+        - {x: -9, y: 416}
+        - {x: -25, y: 386}
+        - {x: -55, y: 331}
+        - {x: -71, y: 310}
+        - {x: -75, y: 304}
+        - {x: -85, y: 284}
+        - {x: -116, y: 233}
+        - {x: -144, y: 137}
+        - {x: -186, y: 165}
+        - {x: -207, y: 156}
+        - {x: -207, y: 139}
+        - {x: -163, y: 97}
+        - {x: -138, y: 85}
+        - {x: -102, y: 77}
+        - {x: -140, y: 14}
+        - {x: -141, y: 73}
+        - {x: -154, y: 91}
+        - {x: -169, y: 97}
+        - {x: -194, y: 69}
+        - {x: -188, y: 48}
+        - {x: -172, y: 8}
+        - {x: -147, y: -17}
+        - {x: -143, y: -51}
+        - {x: -116, y: -145}
+        - {x: -71, y: -185}
+        - {x: -19, y: -209}
+        - {x: 21, y: -232}
+        - {x: 8, y: -284}
+        - {x: -35, y: -314}
+        - {x: -64, y: -348}
+        - {x: -59, y: -362}
+        - {x: -51, y: -387}
+        - {x: -45, y: -400}
+        - {x: -6, y: -471}
+        - {x: -5, y: -498}
+        - {x: -2, y: -499}
+        - {x: 8, y: -499}
+        - {x: 13, y: -491}
+        - {x: 5, y: -438}
+        - {x: -32, y: -357}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
