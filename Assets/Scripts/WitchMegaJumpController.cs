@@ -13,7 +13,7 @@ public class WitchMegaJumpController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        Camera.main.GetComponent<CameraMovement>().GetClampedPosition(new Vector3());
     }
 
     // Update is called once per frame
@@ -63,4 +63,5 @@ public class WitchMegaJumpController : MonoBehaviour {
         //grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position, 1 << LayerMask.NameToLayer("Walkable"));
         grounded = true;
     }
+
 }
