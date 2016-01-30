@@ -22,6 +22,7 @@ public class WitchController : MonoBehaviour {
 	void Start () {
 		beanSeeds = new Queue ();
 		cornSeeds = new Queue ();
+		seedFollowers = new ArrayList ();
 	}
 	
 	// Update is called once per frame
@@ -62,8 +63,38 @@ public class WitchController : MonoBehaviour {
 	public void AddFollower(string followerType){
 		if (followerType == "Bean") {
 			GameObject beanToAdd = Instantiate (beanPrefab, this.transform.position, this.transform.rotation) as GameObject;
-			beanToAdd.GetComponent<BeanFollow>().positionInQueue = beanSeeds.Count;
+			beanToAdd.GetComponent<SeedFollow>().positionInQueue = seedFollowers.Count;
 			beanSeeds.Enqueue(beanToAdd);
+			seedFollowers.Add (beanToAdd);
+		}
+		if (followerType == "Corn") {
+			GameObject cornToAdd = Instantiate (cornPrefab, this.transform.position, this.transform.rotation) as GameObject;
+			cornToAdd.GetComponent<SeedFollow> ().positionInQueue = beanSeeds.Count + cornSeeds.Count;
+			cornSeeds.Enqueue (cornToAdd);
+			seedFollowers.Add (cornToAdd);
+		}
+	}
+
+	public void RemoveFollower(string followerType){
+		if (followerType == "Bean") {
+			GameObject deadBean = beanSeeds.Dequeue () as GameObject;
+			seedFollowers.Remove (deadBean);
+			GameObject.Destroy (deadBean);
+			Debug.Log (beanSeeds.Count);
+			for (int i = 0; i < seedFollowers.Count; i++) {
+				GameObject beanGobj = seedFollowers[i] as GameObject;
+				beanGobj.GetComponent<SeedFollow> ().positionInQueue = i;
+			}
+		}
+		if (followerType == "Corn") {
+
+			GameObject deadCorn = cornSeeds.Dequeue () as GameObject;
+			seedFollowers.Remove (deadCorn);
+			GameObject.Destroy (deadCorn);
+			for (int i = 0; i < seedFollowers.Count; i++) {
+				GameObject beanGobj = seedFollowers[i] as GameObject;
+				beanGobj.GetComponent<SeedFollow> ().positionInQueue = i;
+			}
 		}
 	}
 

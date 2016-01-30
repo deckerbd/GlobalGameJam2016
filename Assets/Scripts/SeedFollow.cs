@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BeanFollow : MonoBehaviour {
+public class SeedFollow : MonoBehaviour {
+	
+	public int positionInQueue;
+	public float yDifferential;
 
 	private GameObject player;
-	public int positionInQueue;
-	public float positionDifference = 0.6f;
+	private float positionDifference = 0.65f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +24,7 @@ public class BeanFollow : MonoBehaviour {
 
 		if (player.transform.localScale.x > 0) {
 			Vector3 newPos = Vector3.Lerp (this.transform.position, player.transform.position - new Vector3 (followDifference, 0, 0), 0.25f);
-			newPos.y = this.transform.position.y;
+			newPos.y = player.GetComponent<WitchController>().groundCheck.transform.position.y + yDifferential;
 			newPos.z = this.transform.position.z;
 			this.transform.position = newPos;
 			if (this.transform.localScale.x < 0) {
@@ -34,7 +36,7 @@ public class BeanFollow : MonoBehaviour {
 		}
 		if (player.transform.localScale.x < 0) {
 			Vector3 newPos = Vector3.Lerp (this.transform.position, player.transform.position + new Vector3 (followDifference, 0, 0), 0.25f);
-			newPos.y = this.transform.position.y;
+			newPos.y = player.GetComponent<WitchController>().groundCheck.transform.position.y + yDifferential;
 			newPos.z = this.transform.position.z;
 			this.transform.position = newPos;
 			if (this.transform.localScale.x > 0) {
