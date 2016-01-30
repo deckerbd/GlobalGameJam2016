@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class WitchController : MonoBehaviour {
@@ -18,11 +19,21 @@ public class WitchController : MonoBehaviour {
 
 	public ArrayList seedFollowers;
 
+	public string[] seedTypes;
+	public Sprite[] seedPictures;
+	public Image seedImage;
+
+	private int seedIndex;
+
+	public bool inSpawn;
+
 	// Use this for initialization
 	void Start () {
 		beanSeeds = new Queue ();
 		cornSeeds = new Queue ();
 		seedFollowers = new ArrayList ();
+
+		seedImage = GameObject.Find ("SelectedSeed").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +43,7 @@ public class WitchController : MonoBehaviour {
 	}
 
 	void InputManager(){
+		//MOVEMENT
 		if (Input.GetAxis ("Horizontal") != 0) {
 			this.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (Input.GetAxis ("Horizontal") * movementModifier, this.gameObject.GetComponent<Rigidbody2D>().velocity.y);
 			if (this.gameObject.GetComponent<Rigidbody2D> ().velocity.x > 0) {
@@ -44,6 +56,66 @@ public class WitchController : MonoBehaviour {
 				}
 			}
 		}
+
+		//SEED SELECTION
+		if(Input.GetButtonDown("Cycle Left")){
+			if(seedIndex - 1 >= seedTypes.Length){
+				seedIndex = 0;
+			}else if(seedIndex - 1 < 0){
+				seedIndex = seedTypes.Length - 1;
+			}else{
+				seedIndex--;
+			}
+			seedImage.sprite = seedPictures[seedIndex];
+		}else if(Input.GetButtonDown("Cycle Right")){
+			if(seedIndex + 1 >= seedTypes.Length){
+				seedIndex = 0;
+			}else if(seedIndex + 1 < 0){
+				seedIndex = seedTypes.Length - 1;
+			}else{
+				seedIndex++;
+			}
+			seedImage.sprite = seedPictures[seedIndex];
+		}
+
+		//SEED USE
+		if (!inSpawn) {
+			if (Input.GetButtonDown ("Seed Action")) {
+				PlantSeed ();
+			}
+		}
+
+	}
+
+	void PlantSeed(){
+
+
+		if (seedTypes [seedIndex] == "Bean") {
+			GameObject bgToGrow = null;
+			Vector3 newPos = (this.transform.position + new Vector3 (1f, 0, 0));
+
+			BoxCollider2D[] boxes = GameObject.FindObjectsOfType<BoxCollider2D> ();
+			ArrayList possibleBGs = new ArrayList();
+
+			foreach (BoxCollider2D b in boxes) {
+				if (b.bounds.Contains (newPos)){
+					possibleBGs.Add (b.gameObject);
+				}
+			}
+
+			int largestOrder = -10000;
+			foreach (Object obj in possibleBGs) {
+				GameObject gobj = obj as GameObject;
+				if (gobj.GetComponent<SpriteRenderer> ().sortingOrder > largestOrder) {
+					bgToGrow = gobj;
+					largestOrder = gobj.GetComponent<SpriteRenderer> ().sortingOrder;
+				}
+			}
+
+			Debug.Log (bgToGrow.name);
+
+		}
+
 	}
 
 	void JumpManager(){
