@@ -10,9 +10,18 @@ public class WitchController : MonoBehaviour {
 
 	public bool grounded = true;
 
+	public Queue beanSeeds;
+	public Queue cornSeeds;
+
+	public GameObject beanPrefab;
+	public GameObject cornPrefab;
+
+	public ArrayList seedFollowers;
+
 	// Use this for initialization
 	void Start () {
-	
+		beanSeeds = new Queue ();
+		cornSeeds = new Queue ();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +57,14 @@ public class WitchController : MonoBehaviour {
 
 	void JumpChecker(){
 		grounded = Physics2D.Linecast (transform.position, groundCheck.transform.position, 1 << LayerMask.NameToLayer ("Walkable"));
+	}
+
+	public void AddFollower(string followerType){
+		if (followerType == "Bean") {
+			GameObject beanToAdd = Instantiate (beanPrefab, this.transform.position, this.transform.rotation) as GameObject;
+			beanToAdd.GetComponent<BeanFollow>().positionInQueue = beanSeeds.Count;
+			beanSeeds.Enqueue(beanToAdd);
+		}
 	}
 
 }
