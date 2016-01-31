@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: ddb7253ccbc73fa4c9f5ef6532327387
+timeCreated: 1454205167
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WalnutWalkCycle_0
+    21300002: WalnutWalkCycle_1
+    21300004: WalnutWalkCycle_2
+    21300006: WalnutWalkCycle_3
+    21300008: WalnutWalkCycle_4
+    21300010: WalnutWalkCycle_5
+    21300012: WalnutWalkCycle_6
+    21300014: WalnutWalkCycle_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WalnutWalkCycle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89, y: -55}
+        - {x: 90, y: -48}
+        - {x: 90, y: 17}
+        - {x: 87, y: 41}
+        - {x: 8, y: 82}
+        - {x: -82, y: 82}
+        - {x: -128, y: 35}
+        - {x: -128, y: -38}
+        - {x: -78, y: -124}
+        - {x: -71, y: -127}
+        - {x: 9, y: -127}
+        - {x: 88, y: -103}
+        - {x: 51, y: -81}
+        - {x: 47, y: -81}
+        - {x: 43, y: -83}
+    - name: WalnutWalkCycle_1
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38, y: -113}
+        - {x: 37, y: -109}
+        - {x: 35, y: -106}
+        - {x: 91, y: -64}
+        - {x: 95, y: -59}
+        - {x: 95, y: 13}
+        - {x: 86, y: 50}
+        - {x: 13, y: 82}
+        - {x: -65, y: 82}
+        - {x: -108, y: 66}
+        - {x: -125, y: 13}
+        - {x: -125, y: -12}
+        - {x: -94, y: -84}
+        - {x: -55, y: -124}
+        - {x: -29, y: -124}
+        - {x: -28, y: -123}
+        - {x: -28, y: -116}
+        - {x: 0, y: -119}
+        - {x: 35, y: -118}
+    - name: WalnutWalkCycle_2
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68, y: 82}
+        - {x: -76, y: 71}
+        - {x: -93, y: 56}
+        - {x: -119, y: 15}
+        - {x: -119, y: -7}
+        - {x: -89, y: -71}
+        - {x: -42, y: -119}
+        - {x: -35, y: -123}
+        - {x: 27, y: -123}
+        - {x: 101, y: -60}
+        - {x: 101, y: 60}
+        - {x: 29, y: 82}
+    - name: WalnutWalkCycle_3
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -115}
+        - {x: 83, y: -112}
+        - {x: 106, y: -62}
+        - {x: 106, y: 64}
+        - {x: 46, y: 82}
+        - {x: -97, y: 82}
+        - {x: -114, y: 39}
+        - {x: -114, y: -26}
+        - {x: -79, y: -62}
+        - {x: -63, y: -77}
+        - {x: -67, y: -107}
+        - {x: -57, y: -113}
+        - {x: -40, y: -120}
+        - {x: -32, y: -123}
+        - {x: -22, y: -123}
+        - {x: -20, y: -120}
+        - {x: -20, y: -114}
+        - {x: -23, y: -111}
+    - name: WalnutWalkCycle_4
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48, y: -81}
+        - {x: 39, y: -87}
+        - {x: 33, y: -83}
+        - {x: 96, y: -72}
+        - {x: 112, y: -57}
+        - {x: 112, y: 31}
+        - {x: 69, y: 84}
+        - {x: -78, y: 84}
+        - {x: -84, y: 82}
+        - {x: -108, y: 17}
+        - {x: -108, y: -20}
+        - {x: -73, y: -118}
+        - {x: -59, y: -127}
+        - {x: 48, y: -127}
+        - {x: 57, y: -83}
+        - {x: 52, y: -81}
+    - name: WalnutWalkCycle_5
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38, y: -120}
+        - {x: 41, y: -115}
+        - {x: 39, y: -110}
+        - {x: 109, y: -111}
+        - {x: 117, y: -82}
+        - {x: 117, y: 84}
+        - {x: -63, y: 84}
+        - {x: -103, y: 36}
+        - {x: -103, y: -37}
+        - {x: -64, y: -126}
+        - {x: -27, y: -126}
+        - {x: -23, y: -119}
+        - {x: 0, y: -126}
+        - {x: 1, y: -126}
+    - name: WalnutWalkCycle_6
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 121, y: 34}
+        - {x: 44, y: 69}
+        - {x: 21, y: 71}
+        - {x: -36, y: 71}
+        - {x: -69, y: 57}
+        - {x: -97, y: -3}
+        - {x: -97, y: -24}
+        - {x: -50, y: -115}
+        - {x: -39, y: -123}
+        - {x: 46, y: -123}
+        - {x: 111, y: -97}
+        - {x: 122, y: -81}
+        - {x: 122, y: 25}
+    - name: WalnutWalkCycle_7
+      rect:
+        serializedVersion: 2
+        x: 7560
+        y: 0
+        width: 1080
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 121, y: 30}
+        - {x: 83, y: 52}
+        - {x: 41, y: 71}
+        - {x: -32, y: 71}
+        - {x: -58, y: 64}
+        - {x: -92, y: 4}
+        - {x: -92, y: -23}
+        - {x: -68, y: -99}
+        - {x: -60, y: -118}
+        - {x: -53, y: -123}
+        - {x: 50, y: -123}
+        - {x: 128, y: -68}
+        - {x: 128, y: 5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

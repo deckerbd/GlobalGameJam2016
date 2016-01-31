@@ -1,0 +1,244 @@
+fileFormatVersion: 2
+guid: 3394ac0108d3d684ea64f6894ccf241b
+timeCreated: 1454205091
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WalnutJump_0
+    21300002: WalnutJump_1
+    21300004: WalnutJump_2
+    21300006: WalnutJump_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WalnutJump_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 405
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: -208}
+        - {x: 14.5, y: -169}
+        - {x: 20.5, y: -135}
+        - {x: 118.5, y: -110}
+        - {x: 149.5, y: -92}
+        - {x: 175.5, y: -74}
+        - {x: 184.5, y: -56}
+        - {x: 184.5, y: 8}
+        - {x: 173.5, y: 57}
+        - {x: 161.5, y: 72}
+        - {x: 113.5, y: 108}
+        - {x: 81.5, y: 124}
+        - {x: 34.5, y: 141}
+        - {x: 12.5, y: 146}
+        - {x: -9.5, y: 150}
+        - {x: -78.5, y: 150}
+        - {x: -95.5, y: 149}
+        - {x: -123.5, y: 136}
+        - {x: -162.5, y: 107}
+        - {x: -175.5, y: 53}
+        - {x: -202.5, y: 24}
+        - {x: -202.5, y: 9}
+        - {x: -173.5, y: -5}
+        - {x: -167.5, y: -56}
+        - {x: -131.5, y: -107}
+        - {x: -101.5, y: -123}
+        - {x: -16.5, y: -132}
+        - {x: -27.5, y: -197}
+        - {x: -42.5, y: -216}
+        - {x: -36.5, y: -232}
+        - {x: 6.5, y: -232}
+        - {x: 50.5, y: -231}
+        - {x: 56.5, y: -224}
+        - {x: 53.5, y: -211}
+        - {x: 47.5, y: -208}
+    - name: WalnutJump_1
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 0
+        width: 405
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: -136}
+        - {x: 39.5, y: -126}
+        - {x: 101.5, y: -117}
+        - {x: 149.5, y: -96}
+        - {x: 179.5, y: -79}
+        - {x: 191.5, y: -58}
+        - {x: 191.5, y: -6}
+        - {x: 187.5, y: 32}
+        - {x: 170.5, y: 74}
+        - {x: 98.5, y: 122}
+        - {x: 41.5, y: 143}
+        - {x: -8.5, y: 150}
+        - {x: -70.5, y: 150}
+        - {x: -97.5, y: 144}
+        - {x: -128.5, y: 125}
+        - {x: -152.5, y: 102}
+        - {x: -165.5, y: 65}
+        - {x: -167.5, y: 50}
+        - {x: -197.5, y: 28}
+        - {x: -197.5, y: 13}
+        - {x: -191.5, y: 2}
+        - {x: -163.5, y: -2}
+        - {x: -160.5, y: -42}
+        - {x: -153.5, y: -74}
+        - {x: -110.5, y: -115}
+        - {x: -96.5, y: -120}
+        - {x: -26.5, y: -135}
+        - {x: -35.5, y: -152}
+        - {x: -103.5, y: -193}
+        - {x: -97.5, y: -242}
+        - {x: -81.5, y: -242}
+        - {x: -50.5, y: -199}
+        - {x: -5.5, y: -166}
+        - {x: 5.5, y: -153}
+    - name: WalnutJump_2
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 405
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 117.5, y: -115}
+        - {x: 183.5, y: -78}
+        - {x: 193.5, y: -72}
+        - {x: 195.5, y: -53}
+        - {x: 195.5, y: 15}
+        - {x: 189.5, y: 39}
+        - {x: 180.5, y: 60}
+        - {x: 168.5, y: 75}
+        - {x: 124.5, y: 108}
+        - {x: 88.5, y: 129}
+        - {x: 18.5, y: 149}
+        - {x: -16.5, y: 150}
+        - {x: -72.5, y: 150}
+        - {x: -80.5, y: 149}
+        - {x: -130.5, y: 124}
+        - {x: -143.5, y: 108}
+        - {x: -162.5, y: 66}
+        - {x: -193.5, y: 22}
+        - {x: -193.5, y: 12}
+        - {x: -178.5, y: 2}
+        - {x: -157.5, y: -41}
+        - {x: -145.5, y: -73}
+        - {x: -127.5, y: -96}
+        - {x: -95.5, y: -120}
+        - {x: 4.5, y: -134}
+        - {x: 20.5, y: -179}
+        - {x: 17.5, y: -219}
+        - {x: 19.5, y: -233}
+        - {x: 47.5, y: -250}
+        - {x: 60.5, y: -254}
+        - {x: 86.5, y: -254}
+        - {x: 95.5, y: -244}
+        - {x: 49.5, y: -215}
+        - {x: 45.5, y: -128}
+    - name: WalnutJump_3
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 405
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: -208}
+        - {x: 14.5, y: -169}
+        - {x: 20.5, y: -127}
+        - {x: 52.5, y: -124}
+        - {x: 104.5, y: -118}
+        - {x: 133.5, y: -109}
+        - {x: 159.5, y: -99}
+        - {x: 198.5, y: -71}
+        - {x: 202.5, y: -60}
+        - {x: 202.5, y: 20}
+        - {x: 192.5, y: 56}
+        - {x: 181.5, y: 73}
+        - {x: 132.5, y: 111}
+        - {x: 54.5, y: 144}
+        - {x: 13.5, y: 150}
+        - {x: -8.5, y: 151}
+        - {x: -66.5, y: 151}
+        - {x: -85.5, y: 149}
+        - {x: -135.5, y: 111}
+        - {x: -172.5, y: 41}
+        - {x: -184.5, y: 22}
+        - {x: -184.5, y: 10}
+        - {x: -167.5, y: 2}
+        - {x: -144.5, y: -58}
+        - {x: -114.5, y: -103}
+        - {x: -77.5, y: -120}
+        - {x: -51.5, y: -123}
+        - {x: -12.5, y: -137}
+        - {x: -16.5, y: -169}
+        - {x: -42.5, y: -216}
+        - {x: -36.5, y: -232}
+        - {x: 6.5, y: -232}
+        - {x: 50.5, y: -231}
+        - {x: 56.5, y: -224}
+        - {x: 53.5, y: -211}
+        - {x: 47.5, y: -208}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
