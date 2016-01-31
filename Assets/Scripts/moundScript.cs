@@ -8,11 +8,6 @@ public class moundScript : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Player" && Input.GetKeyDown ("f"))
-		{
-			Instantiate (cornstalk, transform.position, Quaternion.identity);
-		}
-			
 	}
 
 	// Use this for initialization
