@@ -37,6 +37,20 @@ public class WitchController : MonoBehaviour {
 	public string spawnType;
 	public int currentMaxSeeds;
 
+	public AudioClip[] mousePickup;
+	public AudioClip[] mouseUse;
+	public AudioClip[] mouseProgress;
+	public AudioClip[] mouseReset;
+
+	public AudioClip[] cornPickup;
+	public AudioClip[] cornRefuse;
+	public AudioClip[] cornUse;
+	public AudioClip[] cornDie;
+
+	public AudioClip[] beanPickup;
+	public AudioClip[] beanUse;
+	public AudioClip[] beanRefuse;
+
 	// Use this for initialization
 	void Start () {
 		beanSeeds = new Queue ();
@@ -98,12 +112,16 @@ public class WitchController : MonoBehaviour {
 							seedArray.Add (sh.gameObject);
 						}
 					}
+					this.GetComponent<AudioSource> ().clip = beanPickup [Random.Range (0, beanPickup.Length)];
+					this.GetComponent<AudioSource> ().Play ();
 				} else if (spawnType == "Corn") {
 					foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper>()) {
 						if (sh.corn) {
 							seedArray.Add (sh.gameObject);
 						}
 					}
+					this.GetComponent<AudioSource> ().clip = cornPickup [Random.Range (0, cornPickup.Length)];
+					this.GetComponent<AudioSource> ().Play ();
 				}
 
 				if (seedArray.Count < currentMaxSeeds) {
@@ -203,6 +221,8 @@ public class WitchController : MonoBehaviour {
 					GameObject vine = (GameObject)Instantiate (beanVine, newPos, this.transform.rotation);
 					vine.transform.parent = originalBean.transform;
 					vine.GetComponent<VineGrow> ().GrowVine (bgToGrow);
+					this.GetComponent<AudioSource> ().clip = beanUse [Random.Range (0, beanUse.Length)];
+					this.GetComponent<AudioSource> ().Play ();
 				}
 			}
 		}
@@ -243,7 +263,8 @@ public class WitchController : MonoBehaviour {
 
 						GameObject stalk = (GameObject)Instantiate (ms.cornstalk, ms.gameObject.transform.position, this.transform.rotation);
 						stalk.transform.parent = originalCorn.transform;
-
+						this.GetComponent<AudioSource> ().clip = cornUse [Random.Range (0, cornUse.Length)];
+						this.GetComponent<AudioSource> ().Play ();
 						originalCorn.GetComponent<Renderer> ().enabled = false;
 						originalCorn.GetComponent<SeedFollow> ().enabled = false;
 					}
