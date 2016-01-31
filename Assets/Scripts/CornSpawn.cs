@@ -16,27 +16,23 @@ public class CornSpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playerInside) {
-			if (Input.GetButtonDown ("Seed Action")) {
-				if (player.GetComponent<WitchController> ().cornSeeds.Count < maxSeeds) {
-					player.GetComponent<WitchController> ().AddFollower ("Corn");
-				} else if (player.GetComponent<WitchController> ().cornSeeds.Count >= maxSeeds) {
-					player.GetComponent<WitchController> ().RemoveFollower ("Corn");
-					player.GetComponent<WitchController> ().AddFollower ("Corn");
-				}
-			}
-		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
-			playerInside = true;
+			col.gameObject.GetComponent<WitchController> ().inSpawn = true;
+			col.gameObject.GetComponent<WitchController> ().currentMaxSeeds = maxSeeds;
+			col.gameObject.GetComponent<WitchController> ().spawnType = "Corn";
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
-			playerInside = false;
+			if (col.gameObject.GetComponent<WitchController> ().spawnType == "Corn") {
+				col.gameObject.GetComponent<WitchController> ().spawnType = string.Empty;
+				col.gameObject.GetComponent<WitchController> ().inSpawn = false;
+				col.gameObject.GetComponent<WitchController> ().currentMaxSeeds = 0;
+			}
 		}
 	}
 }

@@ -29,7 +29,8 @@ public class VineGrow : MonoBehaviour {
 			if (!bgWall.GetComponent<BoxCollider2D> ().bounds.Contains (tilePos)) {
 				break;
 			}
-			Instantiate (vineTile, tilePos, this.transform.rotation);
+			GameObject VineTile = Instantiate (vineTile, tilePos, this.transform.rotation) as GameObject;
+			VineTile.transform.parent = this.transform;
 		}
 	}
 }

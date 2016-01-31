@@ -16,29 +16,23 @@ public class BeanSpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playerInside) {
-			if (Input.GetButtonDown ("Seed Action")) {
-				if (player.GetComponent<WitchController> ().beanSeeds.Count < maxSeeds) {
-					player.GetComponent<WitchController> ().AddFollower ("Bean");
-				}else if (player.GetComponent<WitchController> ().beanSeeds.Count >= maxSeeds) {
-					player.GetComponent<WitchController> ().RemoveFollower ("Bean");
-					player.GetComponent<WitchController> ().AddFollower ("Bean");
-				}
-			}
-		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
-			playerInside = true;
 			col.gameObject.GetComponent<WitchController> ().inSpawn = true;
+			col.gameObject.GetComponent<WitchController> ().currentMaxSeeds = maxSeeds;
+			col.gameObject.GetComponent<WitchController> ().spawnType = "Bean";
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
-			playerInside = false;
+			if (col.gameObject.GetComponent<WitchController> ().spawnType == "Bean") {
+				col.gameObject.GetComponent<WitchController> ().spawnType = string.Empty;
+			}
 			col.gameObject.GetComponent<WitchController> ().inSpawn = false;
+			col.gameObject.GetComponent<WitchController> ().currentMaxSeeds = 0;
 		}
 	}
 }
