@@ -32,6 +32,11 @@ public class WitchController : MonoBehaviour {
 
 	public bool climbing;
 
+	private int totalBeanCount, totalCornCount;
+
+	public string spawnType;
+	public int currentMaxSeeds;
+
 	// Use this for initialization
 	void Start () {
 		beanSeeds = new Queue ();
@@ -43,13 +48,12 @@ public class WitchController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		InputManager ();
-		JumpManager ();
 		ClimbCheck ();
 		if (climbing) {
 			ClimbManager ();
 		} else {
 			InputManager ();
+			JumpManager ();
 		}
 	}
 
@@ -81,6 +85,36 @@ public class WitchController : MonoBehaviour {
 			}
 		}
 
+		//SEED PLUCK
+		if (inSpawn) {
+			if (Input.GetButtonDown ("Seed Action")) {
+
+				ArrayList seedArray = new ArrayList();
+
+				if (spawnType == "Bean") {
+					foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper> ()) {
+						if (sh.bean) {
+							seedArray.Add (sh.gameObject);
+						}
+					}
+				} else if (spawnType == "Corn") {
+					foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper>()) {
+						if (sh.corn) {
+							seedArray.Add (sh.gameObject);
+						}
+					}
+				}
+
+				if (seedArray.Count < currentMaxSeeds) {
+					AddFollower (spawnType);
+				}else {
+					RemoveFollower (spawnType);
+					AddFollower (spawnType);
+				}
+			}
+		}
+
+
 	}
 
 	void SeedSelectionManager(){
@@ -111,10 +145,7 @@ public class WitchController : MonoBehaviour {
 			if (CanRemoveFollower ("Bean")) {
 				Vector3 newPos;
 
-				//Turn off bean
 
-				GameObject originalBean = (GameObject)beanSeeds.Peek ();
-				originalBean.GetComponent<Renderer> ().enabled = false;
 
 				GameObject bgToGrow = null;
 
@@ -142,10 +173,77 @@ public class WitchController : MonoBehaviour {
 					}
 				}
 
+				if (possibleBGs.Count == 0) {
+					return;
+				}
+
+				//Turn off bean
+
+				GameObject originalBean = (GameObject)beanSeeds.Dequeue ();
+				seedFollowers.Remove (originalBean);
+
+				ArrayList tempArray = new ArrayList ();
+
+				foreach (object obj in seedFollowers) {
+					if (obj != null && ((GameObject) obj).GetComponent<SpriteRenderer>().enabled == true) {
+						tempArray.Add (obj);
+					}
+				}
+
+				seedFollowers = tempArray;
+
+				for (int i = 0; i < seedFollowers.Count; i++) {
+					GameObject beanGobj = seedFollowers[i] as GameObject;
+					beanGobj.GetComponent<SeedFollow> ().positionInQueue = i;
+				}
+
+				originalBean.GetComponent<Renderer> ().enabled = false;
+				originalBean.GetComponent<SeedFollow> ().enabled = false;
+
 				if (possibleBGs.Count > 0) {
 					GameObject vine = (GameObject)Instantiate (beanVine, newPos, this.transform.rotation);
+					vine.transform.parent = originalBean.transform;
 					vine.GetComponent<VineGrow> ().GrowVine (bgToGrow);
 				}
+			}
+		}
+		if (seedTypes [seedIndex] == "Corn") {
+			if (CanRemoveFollower ("Corn")) {
+				
+				Vector3 newPos;
+
+				if (this.transform.localScale.x > 0) {
+					newPos = (this.transform.position + new Vector3 (1f, 0, 0));
+				} else {
+					newPos = (this.transform.position + new Vector3 (-1f, 0, 0));
+				}
+
+				foreach (moundScript ms in GameObject.FindObjectsOfType<moundScript>()) {
+					
+					if (ms.GetComponent<BoxCollider2D> ().bounds.Contains (newPos)) {
+						GameObject originalCorn = (GameObject)cornSeeds.Dequeue ();
+						seedFollowers.Remove (originalCorn);
+
+						ArrayList tempArray = new ArrayList ();
+
+						foreach (object obj in seedFollowers) {
+							if (obj != null && ((GameObject) obj).GetComponent<SpriteRenderer>().enabled == true) {
+								tempArray.Add (obj);
+							}
+						}
+
+						seedFollowers = tempArray;
+
+						for (int i = 0; i < seedFollowers.Count; i++) {
+							GameObject seedGobj = seedFollowers[i] as GameObject;
+							seedGobj.GetComponent<SeedFollow> ().positionInQueue = i;
+						}
+
+						originalCorn.GetComponent<Renderer> ().enabled = false;
+						originalCorn.GetComponent<SeedFollow> ().enabled = false;
+					}
+				}
+
 			}
 		}
 	}
@@ -167,13 +265,17 @@ public class WitchController : MonoBehaviour {
 	public void AddFollower(string followerType){
 		if (followerType == "Bean") {
 			GameObject beanToAdd = Instantiate (beanPrefab, this.transform.position, this.transform.rotation) as GameObject;
+			beanToAdd.GetComponent<SeedHelper> ().seedNumber = totalBeanCount + 1;
+			totalBeanCount++;
 			beanToAdd.GetComponent<SeedFollow>().positionInQueue = seedFollowers.Count;
 			beanSeeds.Enqueue(beanToAdd);
 			seedFollowers.Add (beanToAdd);
 		}
 		if (followerType == "Corn") {
 			GameObject cornToAdd = Instantiate (cornPrefab, this.transform.position, this.transform.rotation) as GameObject;
-			cornToAdd.GetComponent<SeedFollow> ().positionInQueue = beanSeeds.Count + cornSeeds.Count;
+			cornToAdd.GetComponent<SeedHelper> ().seedNumber = totalCornCount + 1;
+			totalCornCount++;
+			cornToAdd.GetComponent<SeedFollow> ().positionInQueue = seedFollowers.Count;
 			cornSeeds.Enqueue (cornToAdd);
 			seedFollowers.Add (cornToAdd);
 		}
@@ -181,36 +283,122 @@ public class WitchController : MonoBehaviour {
 
 	public void RemoveFollower(string followerType){
 		if (followerType == "Bean") {
-			GameObject deadBean = beanSeeds.Dequeue () as GameObject;
-			seedFollowers.Remove (deadBean);
-			GameObject.Destroy (deadBean);
-			Debug.Log (beanSeeds.Count);
-			for (int i = 0; i < seedFollowers.Count; i++) {
-				GameObject beanGobj = seedFollowers[i] as GameObject;
-				beanGobj.GetComponent<SeedFollow> ().positionInQueue = i;
-			}
-		}
-		if (followerType == "Corn") {
+			GameObject deadBean = null;
 
-			GameObject deadCorn = cornSeeds.Dequeue () as GameObject;
-			seedFollowers.Remove (deadCorn);
-			GameObject.Destroy (deadCorn);
+			ArrayList possibleBeans = new ArrayList ();
+
+			foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper>()) {
+				if (sh.bean) {
+					possibleBeans.Add (sh);
+				}
+			}
+
+			int lowestBeanVal = 1000;
+
+			foreach (Object obj in possibleBeans) {
+				SeedHelper sh = (obj as SeedHelper);
+				if (sh.seedNumber < lowestBeanVal) {
+					deadBean = sh.gameObject;
+					lowestBeanVal = sh.seedNumber;
+				}
+			}
+
+			if (beanSeeds.Contains (deadBean)) {
+				beanSeeds.Dequeue ();
+			}
+
+			seedFollowers.Remove (deadBean);
+			ArrayList tempArray = new ArrayList ();
+
+			foreach (object obj in seedFollowers) {
+				if (obj != null) {
+					tempArray.Add (obj);
+				}
+			}
+
+			seedFollowers = tempArray;
+
+			GameObject.Destroy (deadBean);
+
 			for (int i = 0; i < seedFollowers.Count; i++) {
 				GameObject beanGobj = seedFollowers[i] as GameObject;
 				beanGobj.GetComponent<SeedFollow> ().positionInQueue = i;
 			}
+
+			Debug.Log (beanSeeds.Count);
+
+		}
+
+		if (followerType == "Corn") {
+			GameObject deadCorn = null;
+
+			ArrayList possibleCorns = new ArrayList ();
+
+			foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper>()) {
+				if (sh.corn) {
+					possibleCorns.Add (sh);
+				}
+			}
+
+			int lowestcornVal = 1000;
+
+			foreach (Object obj in possibleCorns) {
+				SeedHelper sh = (obj as SeedHelper);
+				if (sh.seedNumber < lowestcornVal) {
+					deadCorn = sh.gameObject;
+					lowestcornVal = sh.seedNumber;
+				}
+			}
+
+			if (cornSeeds.Contains (deadCorn)) {
+				cornSeeds.Dequeue ();
+			}
+
+			seedFollowers.Remove (deadCorn);
+			ArrayList tempArray = new ArrayList ();
+
+			foreach (object obj in seedFollowers) {
+				if (obj != null) {
+					tempArray.Add (obj);
+				}
+			}
+
+			seedFollowers = tempArray;
+
+			GameObject.Destroy (deadCorn);
+
+			for (int i = 0; i < seedFollowers.Count; i++) {
+				GameObject cornGobj = seedFollowers[i] as GameObject;
+				cornGobj.GetComponent<SeedFollow> ().positionInQueue = i;
+			}
+
+			Debug.Log (cornSeeds.Count);
 		}
 	}
 
 	public bool CanRemoveFollower(string followerType){
 		if (followerType == "Bean") {
-			if (beanSeeds.Count > 0) {
+
+			ArrayList allBeans = new ArrayList ();
+			foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper>()) {
+				if (sh.bean) {
+					allBeans.Add (sh);
+				}
+			}
+			if (allBeans.Count > 0) {
 				return true;
 			} else {
 				return false;
 			}
 		} else if (followerType == "Corn") {
-			if (cornSeeds.Count > 0) {
+
+			ArrayList allCorn = new ArrayList ();
+			foreach (SeedHelper sh in GameObject.FindObjectsOfType<SeedHelper>()) {
+				if (sh.corn) {
+					allCorn.Add (sh);
+				}
+			}
+			if (allCorn.Count > 0) {
 				return true;
 			} else {
 				return false;
