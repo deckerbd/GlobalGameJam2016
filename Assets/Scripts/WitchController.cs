@@ -27,6 +27,8 @@ public class WitchController : MonoBehaviour {
 
 	public bool inSpawn;
 
+	public GameObject beanVine;
+
 	// Use this for initialization
 	void Start () {
 		beanSeeds = new Queue ();
@@ -88,34 +90,47 @@ public class WitchController : MonoBehaviour {
 	}
 
 	void PlantSeed(){
-
-
 		if (seedTypes [seedIndex] == "Bean") {
-			GameObject bgToGrow = null;
-			Vector3 newPos = (this.transform.position + new Vector3 (1f, 0, 0));
+			if (CanRemoveFollower ("Bean")) {
+				Vector3 newPos;
 
-			BoxCollider2D[] boxes = GameObject.FindObjectsOfType<BoxCollider2D> ();
-			ArrayList possibleBGs = new ArrayList();
+				//Turn off bean
 
-			foreach (BoxCollider2D b in boxes) {
-				if (b.bounds.Contains (newPos)){
-					possibleBGs.Add (b.gameObject);
+				GameObject originalBean = (GameObject)beanSeeds.Peek ();
+				originalBean.GetComponent<Renderer> ().enabled = false;
+
+				GameObject bgToGrow = null;
+
+				if (this.transform.localScale.x > 0) {
+					newPos = (this.transform.position + new Vector3 (1f, 0, 0));
+				} else {
+					newPos = (this.transform.position + new Vector3 (-1f, 0, 0));
+				}
+
+				BoxCollider2D[] boxes = GameObject.FindObjectsOfType<BoxCollider2D> ();
+				ArrayList possibleBGs = new ArrayList ();
+
+				foreach (BoxCollider2D b in boxes) {
+					if (b.bounds.Contains (newPos) && b.gameObject.tag == "BackgroundPlatform") {
+						possibleBGs.Add (b.gameObject);
+					}
+				}
+
+				int largestOrder = -10000;
+				foreach (Object obj in possibleBGs) {
+					GameObject gobj = obj as GameObject;
+					if (gobj.GetComponent<SpriteRenderer> ().sortingOrder > largestOrder) {
+						bgToGrow = gobj;
+						largestOrder = gobj.GetComponent<SpriteRenderer> ().sortingOrder;
+					}
+				}
+
+				if (possibleBGs.Count > 0) {
+					GameObject vine = (GameObject)Instantiate (beanVine, newPos, this.transform.rotation);
+					vine.GetComponent<VineGrow> ().GrowVine (bgToGrow);
 				}
 			}
-
-			int largestOrder = -10000;
-			foreach (Object obj in possibleBGs) {
-				GameObject gobj = obj as GameObject;
-				if (gobj.GetComponent<SpriteRenderer> ().sortingOrder > largestOrder) {
-					bgToGrow = gobj;
-					largestOrder = gobj.GetComponent<SpriteRenderer> ().sortingOrder;
-				}
-			}
-
-			Debug.Log (bgToGrow.name);
-
 		}
-
 	}
 
 	void JumpManager(){
@@ -168,6 +183,23 @@ public class WitchController : MonoBehaviour {
 				beanGobj.GetComponent<SeedFollow> ().positionInQueue = i;
 			}
 		}
+	}
+
+	public bool CanRemoveFollower(string followerType){
+		if (followerType == "Bean") {
+			if (beanSeeds.Count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if (followerType == "Corn") {
+			if (cornSeeds.Count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} else
+			return false;
 	}
 
 }
