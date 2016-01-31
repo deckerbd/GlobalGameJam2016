@@ -18,3 +18,4 @@ $RECYCLE.BIN/
 Desktop.ini
 .meta
 Assets/Prefabs/PlayerPrefab.prefab
+*.meta

@@ -66,6 +66,7 @@ public class WitchController : MonoBehaviour {
 		ClimbCheck ();
 		SeedSelectionManager ();
 		if (climbing) {
+			this.GetComponent<Animator> ().SetBool ("Climbing", true);
 			ClimbManager ();
 		} else {
 			InputManager ();
@@ -83,16 +84,21 @@ public class WitchController : MonoBehaviour {
 	void InputManager(){
 		//NON-CLIMBING MOVEMENT
 		if (Input.GetAxis ("Horizontal") != 0) {
-			this.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (Input.GetAxis ("Horizontal") * movementModifier, this.gameObject.GetComponent<Rigidbody2D>().velocity.y);
+			this.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (Input.GetAxis ("Horizontal") * movementModifier, this.gameObject.GetComponent<Rigidbody2D> ().velocity.y);
 			if (this.gameObject.GetComponent<Rigidbody2D> ().velocity.x > 0) {
 				if (this.gameObject.transform.localScale.x < 0) {
 					this.gameObject.transform.localScale = new Vector3 (this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
 				}
-			} else if (this.gameObject.GetComponent<Rigidbody2D> ().velocity.x < 0){
+			} else if (this.gameObject.GetComponent<Rigidbody2D> ().velocity.x < 0) {
 				if (this.gameObject.transform.localScale.x > 0) {
 					this.gameObject.transform.localScale = new Vector3 (this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
 				}
 			}
+
+			this.GetComponent<Animator> ().SetBool ("Walking", true);
+
+		} else {
+			this.GetComponent<Animator> ().SetBool ("Walking", false);
 		}
 
 		if(Input.GetButtonDown("Reset")){
@@ -283,11 +289,14 @@ public class WitchController : MonoBehaviour {
 
 	void JumpManager(){
 		JumpChecker ();
-		if(grounded){
+		if (grounded) {
 			if (Input.GetButtonDown ("Jump")) {
 				this.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector3 (0, 0, 0);
 				this.gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector3.up * jumpModifier);
 			}
+			this.gameObject.GetComponent<Animator> ().SetBool ("Jumping", false);
+		} else {
+			this.gameObject.GetComponent<Animator> ().SetBool ("Jumping", true);
 		}
 	}
 
