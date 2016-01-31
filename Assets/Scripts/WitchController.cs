@@ -218,7 +218,31 @@ public class WitchController : MonoBehaviour {
 					newPos = (this.transform.position + new Vector3 (-1f, 0, 0));
 				}
 
+				foreach (moundScript ms in GameObject.FindObjectsOfType<moundScript>()) {
+					
+					if (ms.GetComponent<BoxCollider2D> ().bounds.Contains (newPos)) {
+						GameObject originalCorn = (GameObject)cornSeeds.Dequeue ();
+						seedFollowers.Remove (originalCorn);
 
+						ArrayList tempArray = new ArrayList ();
+
+						foreach (object obj in seedFollowers) {
+							if (obj != null && ((GameObject) obj).GetComponent<SpriteRenderer>().enabled == true) {
+								tempArray.Add (obj);
+							}
+						}
+
+						seedFollowers = tempArray;
+
+						for (int i = 0; i < seedFollowers.Count; i++) {
+							GameObject seedGobj = seedFollowers[i] as GameObject;
+							seedGobj.GetComponent<SeedFollow> ().positionInQueue = i;
+						}
+
+						originalCorn.GetComponent<Renderer> ().enabled = false;
+						originalCorn.GetComponent<SeedFollow> ().enabled = false;
+					}
+				}
 
 			}
 		}
