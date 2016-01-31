@@ -30,9 +30,9 @@ public class BeanSpawn : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			if (col.gameObject.GetComponent<WitchController> ().spawnType == "Bean") {
 				col.gameObject.GetComponent<WitchController> ().spawnType = string.Empty;
+				col.gameObject.GetComponent<WitchController> ().inSpawn = false;
+				col.gameObject.GetComponent<WitchController> ().currentMaxSeeds = 0;
 			}
-			col.gameObject.GetComponent<WitchController> ().inSpawn = false;
-			col.gameObject.GetComponent<WitchController> ().currentMaxSeeds = 0;
 		}
 	}
 }
