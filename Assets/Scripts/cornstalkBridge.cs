@@ -56,7 +56,8 @@ public class cornstalkBridge : MonoBehaviour
 		{
 			rbCornstalk.AddForce (new Vector2 (.5f, -.5f) * force);
 		}
-		if (fallLeft == true)
+
+		 if (fallLeft == true)
 		{
 			rbCornstalk.AddForce (new Vector2 (-.5f, -.5f) * force);
 		}

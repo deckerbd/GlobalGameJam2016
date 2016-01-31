@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class WitchController : MonoBehaviour {
@@ -70,6 +71,7 @@ public class WitchController : MonoBehaviour {
 			InputManager ();
 			JumpManager ();
 		}
+
 	}
 
 	void ClimbManager(){
@@ -91,6 +93,10 @@ public class WitchController : MonoBehaviour {
 					this.gameObject.transform.localScale = new Vector3 (this.gameObject.transform.localScale.x * -1, this.gameObject.transform.localScale.y, this.gameObject.transform.localScale.z);
 				}
 			}
+		}
+
+		if(Input.GetButtonDown("Reset")){
+			ResetLevel();
 		}
 
 		//SEED USE
@@ -267,6 +273,7 @@ public class WitchController : MonoBehaviour {
 						this.GetComponent<AudioSource> ().Play ();
 						originalCorn.GetComponent<Renderer> ().enabled = false;
 						originalCorn.GetComponent<SeedFollow> ().enabled = false;
+						stalk.transform.localScale = new Vector3 (Mathf.Abs (stalk.transform.localScale.x), stalk.transform.localScale.y, stalk.transform.localScale.z);
 					}
 				}
 
@@ -449,5 +456,16 @@ public class WitchController : MonoBehaviour {
 			gobj2D.GetComponent<BoxCollider2D> ().enabled = true;
 		}
 		climbing = false;
+	}
+
+	public void ResetLevel(){
+		StartCoroutine ("ResetLevelWait");
+	}
+
+	IEnumerator ResetLevelWait(){
+		this.GetComponent<AudioSource> ().clip = mouseReset [Random.Range (0, mouseReset.Length)];
+		this.GetComponent<AudioSource> ().Play ();
+		yield return new WaitForSeconds (this.GetComponent<AudioSource> ().clip.length);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 	}
 }
