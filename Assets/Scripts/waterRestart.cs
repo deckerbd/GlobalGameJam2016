@@ -7,7 +7,7 @@ public class waterRestart : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player") 
 		{
-			Debug.Log ("Restart Level"); 
+			other.GetComponent<WitchController> ().ResetLevel ();
 		}
 	}
 
