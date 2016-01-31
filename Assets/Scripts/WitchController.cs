@@ -49,6 +49,7 @@ public class WitchController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		ClimbCheck ();
+		SeedSelectionManager ();
 		if (climbing) {
 			ClimbManager ();
 		} else {
@@ -145,8 +146,6 @@ public class WitchController : MonoBehaviour {
 			if (CanRemoveFollower ("Bean")) {
 				Vector3 newPos;
 
-
-
 				GameObject bgToGrow = null;
 
 				if (this.transform.localScale.x > 0) {
@@ -219,8 +218,11 @@ public class WitchController : MonoBehaviour {
 				}
 
 				foreach (moundScript ms in GameObject.FindObjectsOfType<moundScript>()) {
-					
+
+					Debug.Log (ms.name);
+
 					if (ms.GetComponent<BoxCollider2D> ().bounds.Contains (newPos)) {
+						Debug.Log ("I did it");
 						GameObject originalCorn = (GameObject)cornSeeds.Dequeue ();
 						seedFollowers.Remove (originalCorn);
 
@@ -238,6 +240,9 @@ public class WitchController : MonoBehaviour {
 							GameObject seedGobj = seedFollowers[i] as GameObject;
 							seedGobj.GetComponent<SeedFollow> ().positionInQueue = i;
 						}
+
+						GameObject stalk = (GameObject)Instantiate (ms.cornstalk, ms.gameObject.transform.position, this.transform.rotation);
+						stalk.transform.parent = originalCorn.transform;
 
 						originalCorn.GetComponent<Renderer> ().enabled = false;
 						originalCorn.GetComponent<SeedFollow> ().enabled = false;
