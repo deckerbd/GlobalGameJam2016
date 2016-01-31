@@ -13,10 +13,12 @@ public class PassthroughFloor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (groundCheck.transform.position.y > this.transform.position.y) {
-			this.gameObject.GetComponent<Collider2D> ().enabled = true;
-		} else {
-			this.gameObject.GetComponent<Collider2D> ().enabled = false;
+		if (!GameObject.FindObjectOfType<WitchController> ().climbing) {
+			if (groundCheck.transform.position.y > this.transform.position.y) {
+				this.gameObject.GetComponent<Collider2D> ().enabled = true;
+			} else {
+				this.gameObject.GetComponent<Collider2D> ().enabled = false;
+			}
 		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Collections;
 public class WitchController : MonoBehaviour {
 
 	public float movementModifier = 2.5f;
+	public float climbModifier = 2.5f;
 
 	public GameObject groundCheck;
 	public float jumpModifier = 200f;
@@ -29,6 +30,8 @@ public class WitchController : MonoBehaviour {
 
 	public GameObject beanVine;
 
+	public bool climbing;
+
 	// Use this for initialization
 	void Start () {
 		beanSeeds = new Queue ();
@@ -42,10 +45,22 @@ public class WitchController : MonoBehaviour {
 	void Update () {
 		InputManager ();
 		JumpManager ();
+		ClimbCheck ();
+		if (climbing) {
+			ClimbManager ();
+		} else {
+			InputManager ();
+		}
+	}
+
+	void ClimbManager(){
+		if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
+			this.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (Input.GetAxis ("Horizontal") * movementModifier, Input.GetAxis("Vertical") * climbModifier);
+		}
 	}
 
 	void InputManager(){
-		//MOVEMENT
+		//NON-CLIMBING MOVEMENT
 		if (Input.GetAxis ("Horizontal") != 0) {
 			this.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (Input.GetAxis ("Horizontal") * movementModifier, this.gameObject.GetComponent<Rigidbody2D>().velocity.y);
 			if (this.gameObject.GetComponent<Rigidbody2D> ().velocity.x > 0) {
@@ -59,6 +74,16 @@ public class WitchController : MonoBehaviour {
 			}
 		}
 
+		//SEED USE
+		if (!inSpawn) {
+			if (Input.GetButtonDown ("Seed Action")) {
+				PlantSeed ();
+			}
+		}
+
+	}
+
+	void SeedSelectionManager(){
 		//SEED SELECTION
 		if(Input.GetButtonDown("Cycle Left")){
 			if(seedIndex - 1 >= seedTypes.Length){
@@ -79,14 +104,6 @@ public class WitchController : MonoBehaviour {
 			}
 			seedImage.sprite = seedPictures[seedIndex];
 		}
-
-		//SEED USE
-		if (!inSpawn) {
-			if (Input.GetButtonDown ("Seed Action")) {
-				PlantSeed ();
-			}
-		}
-
 	}
 
 	void PlantSeed(){
@@ -202,4 +219,21 @@ public class WitchController : MonoBehaviour {
 			return false;
 	}
 
+	void ClimbCheck(){
+		foreach (Climbable climb in GameObject.FindObjectsOfType<Climbable>()) {
+			GameObject gobj = climb.gameObject;
+
+			if (gobj.GetComponent<BoxCollider2D> ().bounds.Contains (this.transform.position)) {
+				foreach (GameObject gobj2D in GameObject.FindGameObjectsWithTag("PassthroughPlatform")) {
+					gobj2D.GetComponent<BoxCollider2D> ().enabled = false;				
+				}
+				climbing = true;
+				return;
+			}
+		}
+		foreach (GameObject gobj2D in GameObject.FindGameObjectsWithTag("PassthroughPlatform")) {
+			gobj2D.GetComponent<BoxCollider2D> ().enabled = true;
+		}
+		climbing = false;
+	}
 }
